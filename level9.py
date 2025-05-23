@@ -47,7 +47,7 @@ for i in range(0,len(cords),2):
     if i >= 551:
         break
     img.putpixel(pixel_pos,red_color)
-
+print(pixel_pos)
 img.show()
 
 
