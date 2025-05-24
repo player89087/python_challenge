@@ -1,19 +1,21 @@
+a =  [1, 11, 21, 1211, 111221]
 
-fib_list = [1,2]
-for i in range(33):
-    fib_list.append(fib_list[i] + fib_list[i+1])
-
-
-x = str(fib_list[30])
-x = b"2178309"
-print(type(x))
-print(fib_list[30])
-
-y = [1,0,0,0,0,1,0,0,1,1,1,1,0,1,0,0,0,0,0,1,0,1]
-final = ""
-for i in range(len(y)):
-    z = y[i]+1
-    final += str(z)
-print(len(final))
-
-
+solution = str(1)
+for x in range(30):
+    a = list(solution)
+    solution = []
+    counter = 1
+    for i in range(0, len(a)):
+        try:
+            if a[i] == a[i+1]:
+                counter += 1
+              
+            else:
+                part_a = str(counter) + a[i]
+                solution += part_a
+                counter = 1
+        except IndexError:
+            part_a = str(counter)+ a[i]
+            solution += part_a
+print(solution)
+print(len(solution))
