@@ -1,7 +1,9 @@
 import argparse
 import requests 
 import time 
+import sys 
 
+sys.set_int_max_str_digits(10000000) # set the limit higher
 start = time.time()
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -18,5 +20,5 @@ for i in range(0,numb):
 end = time.time()
 
 dur = end - start
-print(f"Time needed: {dur} \n the number: {fib_list[numb]}")
+print(f"the number: {fib_list[numb]}\n Time needed: {dur}")
 
