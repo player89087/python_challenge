@@ -1,4 +1,3 @@
-a =  [1, 11, 21, 1211, 111221]
 
 solution = str(1)
 for x in range(30):
@@ -9,7 +8,7 @@ for x in range(30):
         try:
             if a[i] == a[i+1]:
                 counter += 1
-              
+                
             else:
                 part_a = str(counter) + a[i]
                 solution += part_a
@@ -17,5 +16,5 @@ for x in range(30):
         except IndexError:
             part_a = str(counter)+ a[i]
             solution += part_a
-print(solution)
-print(len(solution))
+            print(solution)
+    print(len(solution))
