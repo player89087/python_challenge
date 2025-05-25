@@ -1,6 +1,6 @@
 from PIL import Image
 
-file = r"C:\Users\sven-\Desktop\evil.jpg"
+file = r"C:\Users\sven-\Desktop\evil1.jpg"
 img = Image.open(file)
 new_img1 = []
 new_img2 = []
@@ -9,13 +9,13 @@ with Image.open(file) as image:
     x_width, y_width = image.size
 
 for x in range(x_width):
-    if x % 2:
+    if y % 3:
         offset = 0
     else:
         offset = 1
     for y in range(y_width):
         rgb_pixel = img.getpixel((x, y))
-        if (y+offset) % 2:
+        if (y+offset) % 3:
             new_img1.append(rgb_pixel)
         else:
             new_img2.append(rgb_pixel)

@@ -1,20 +1,22 @@
-from matplotlib import pyplot as plt
-import numpy as np
+import argparse
+import requests 
+import time 
 
+start = time.time()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="fibonacci sequence"
+    )
+    parser.add_argument("-n", required=True, type=int) # amount of places
+   
+    args = parser.parse_args()
 
-x = [146,399,163,403,170,393,169,391,166,386,170,381,170,371,170,355,169,346,167,335,170,329,170,320,170,
-310,171,301,173,290,178,289,182,287,188,286,190,286,192,291,194,296,195,305,194,307,191,312,190,316,
-190,321,192,331,193,338,196,341,197,346,199,352,198,360,197,366,197,373,196,380,197,383,196,387,192,
-389,191,392,190,396,189,400,194,401,201,402,208,403,213,402,216,401,219,397,219,393,216,390,215,385,
-215,379,213,373,213,365,212,360,210,]
-y = [156,141,165,135,169,131,176,130,187,134,191,140,191,146,186,150,179,155,175,157,168,157,163,157,159,
-157,158,164,159,175,159,181,157,191,154,197,153,205,153,210,152,212,147,215,146,218,143,220,132,220,
-125,217,119,209,116,196,115,185,114,172,114,167,112,161,109,165,107,170,99,171,97,167,89,164,81,162,
-77,155,81,148,87,140,96,138,105,141,110,136,111,126,113,129,118,117,128,114,137,115,146,114,155,115,
-158,121,157,128,156,134,157,136,156,136]
-threshold = 20
-indices = np.nonzero(np.diff(x) >= threshold)[0] + 1
+    numb = args.n
+    fib_list = [0, 1]
+for i in range(0,numb):
+    fib_list.append(fib_list[i] + fib_list[i+1])
+end = time.time()
 
-for i0, i1 in zip(np.append(0, indices), np.append(indices, len(x))):
-    plt.plot(x[i0:i1], y[i0:i1], '-go')
-plt.show()
+dur = end - start
+print(f"Time needed: {dur} \n the number: {fib_list[numb]}")
+
